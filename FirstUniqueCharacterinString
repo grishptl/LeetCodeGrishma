@@ -1,0 +1,14 @@
+#Python 3.0 
+#Grishma Patel
+from collections import Counter
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        #s.split()
+        #splitstr = [i for i in s]
+        dictcount = Counter(s)
+        #print(dictcount)
+        for ikey,ival in dictcount.items():
+            #print(ikey,ival)
+            if ival == 1:
+                return s.index(ikey)
+        return -1
