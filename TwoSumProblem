@@ -1,3 +1,4 @@
+#approach 1 Brute Force O(n*n)
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         idx = 0;
@@ -7,4 +8,17 @@ class Solution:
                 numscopy = nums[idx+1:]
                 return [nums.index(i),numscopy.index(anothernum)+idx+1]
             idx += 1   
+           
+   #approach 2 One pass hashmap O(n)
+   class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hashmap={}
+        
+        for i in range(len(nums)):
+            print(hashmap)
+            anothernum = target-nums[i]
+            if anothernum in hashmap:
+                return [i,hashmap[anothernum]]
+            hashmap[nums[i]]= i
+        
         
