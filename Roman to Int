@@ -1,0 +1,18 @@
+#49. Group Anagrams
+#Grishma Patel
+
+#Approach O(Nklogk)
+from collections import Counter
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        ihash={}
+        for i in strs: #complexity n
+            ikey = "".join(sorted(i)) #complexity for sorting str klogk
+            if ikey in ihash.keys():
+                currval = ihash[ikey]
+                ihash[ikey] = currval + [i]
+            else:
+                ihash[ikey]=[i]
+        return ihash.values()
+        
+    #Approach 2 O(n)
