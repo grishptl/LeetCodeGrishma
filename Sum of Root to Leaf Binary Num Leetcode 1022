@@ -1,0 +1,34 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sumRootToLeaf(self, root: Optional[TreeNode]) -> int:
+        #print(root)
+        """
+        e.g.
+                1
+                /\
+               0. 1
+            /\     /\
+            0. 1   0. 1
+        op :22
+        """
+        
+        def preorder(r,currentnum):
+            nonlocal result
+            #print(r.val,currentnum)
+            if r:
+                currentnum=currentnum<<1 | r.val
+
+                if not (r.left or r.right):
+                    result = result + currentnum
+                preorder(r.left,currentnum)
+                preorder(r.right,currentnum)
+        result = 0
+            #return result
+        preorder(root,0)
+        
+        return result
