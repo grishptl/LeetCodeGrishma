@@ -1,0 +1,24 @@
+#Author: Grishma
+#Complexity :O(n)
+#Approach: Stack LIFO Python 3
+class Solution:
+    def isValid(self, s: str) -> bool:
+        mystack = list()
+        def peek(mystack):
+            if len(mystack)>0:
+                return mystack[-1]
+            else:
+                return None
+        for ch in s:
+            if ch == "(" or ch == "[" or ch == "{":
+                mystack.append(ch)
+            elif ch == ")" and peek(mystack) == "(":
+                mystack.pop()
+            elif ch == "]" and peek(mystack)  == "[":
+                mystack.pop()
+            elif ch == "}" and peek(mystack)  == "{":
+                mystack.pop()
+            else:
+                return False
+        if len(mystack)==0:
+            return True
