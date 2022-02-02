@@ -1,0 +1,23 @@
+#Author Grishma
+#LeetCode : Add binaries without using + operator
+#Complexity: Time O(m+n), space max(m,n) to store result
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        #using bitwise operators
+        #no additions used
+        x = int(a,2)
+        y = int(b,2)
+        print(a,b,x,y)
+        
+        while y: #while carry y is non zero
+            #normal bitwise xor of two nums
+            result = x^y
+            #print(result)
+            carry= (x&y) <<1
+            x = result
+            y = carry
+            #result = result+carry
+            #print(result,carry)
+        return bin(x)[2:]
+            
+            
