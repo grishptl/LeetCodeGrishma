@@ -1,0 +1,22 @@
+#find sqrt without using API
+#Approach binary search
+#Time complexity O(logn), space: O(n)
+#Author: Grishma
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        #using binary search
+        left = 1
+        right = x
+        if x<2:
+            return x
+        while(left<right):
+            mid = (left+right)//2
+            print(left,right)
+            if(mid*mid == x):
+                return mid #Found it, return mid
+            elif (mid*mid>x):
+                right = mid#discard right half
+            else:
+                left = mid+1 #discard left half
+        return left-1 #one step lower
+                
