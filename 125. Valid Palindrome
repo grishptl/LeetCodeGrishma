@@ -1,0 +1,21 @@
+#Author : Grishma
+#LeetCode 125. Valid Palindrome without using reverse API
+#T(O) : O(n)
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        start = 0
+        end=len(s)-1
+        #s.isalnum
+        while start<end:
+            if not s[start].isalnum():
+                start = start+1
+                continue
+            if not s[end].isalnum():
+                end=end-1
+                continue
+            if s[start].lower() != s[end].lower():
+                return False
+            start = start+1
+            end = end-1
+        return True
