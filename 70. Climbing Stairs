@@ -1,0 +1,19 @@
+#Author : Grishma
+#Sincer Thanks to : https://www.youtube.com/watch?v=Y0lT9Fck7qI [Refered for understanding]
+#TimeComplexity: O(n)
+
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        #dynamic prog with bottomup
+        
+        #Fix last two points as 1,1
+        curr=1
+        prev=1
+        
+        for i in range(n-1):
+            #update prev and curr
+            #cache curr
+            temp = curr
+            curr = curr +prev #add prev two values for nextval
+            prev = temp #update prev 
+        return curr
