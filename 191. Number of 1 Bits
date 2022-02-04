@@ -1,0 +1,15 @@
+#Author: Grishma
+#Sincier thanks: @NeetCode YT
+#Time Complexity: O(1)
+
+#from collections import Counter
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        #print(bin(n)[2:])
+        #dict_elem=Counter(bin(n)[2:])
+        #return dict_elem["1"]
+        result = 0
+        while n:
+            n = n & (n-1)
+            result=result+1
+        return result
