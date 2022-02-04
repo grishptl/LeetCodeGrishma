@@ -1,0 +1,11 @@
+#Author Grishma
+#Valid anagram 
+# Complexity Time: O(n), Space O(1) since input is string and 26 counts (a-z) are possible
+from collections import Counter
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        #if sorted(s)==sorted(t):
+        if Counter(s)==Counter(t):
+            return True
+        return False
+        
