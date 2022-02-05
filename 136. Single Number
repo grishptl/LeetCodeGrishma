@@ -1,0 +1,10 @@
+#Author: Grishma
+#Single Number: Should be in O(n) time and o(1) space
+#Approach xor bit manipulation
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        bit=0
+        for i in nums:
+            bit ^= i 
+            #this will cancel out duplicates since, xor of same nums are 0 irrespective of the order we executre it
+        return bit
