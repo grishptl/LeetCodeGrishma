@@ -1,3 +1,4 @@
+#Complexity: Space & Time O(32) i.e. O(1)
 class Solution:
     def reverseBits(self, n: int) -> int:
         #Set all 32bits i.e. int result to 0 i.e. 32 0's
