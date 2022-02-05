@@ -1,0 +1,13 @@
+class Solution:
+    def reverseBits(self, n: int) -> int:
+        #Set all 32bits i.e. int result to 0 i.e. 32 0's
+        result = 0
+        for i in range(32):
+            #right shift to get a bit and logic and with 1 i.e. 1&0=0 , 1&1=1
+            bit = (n>>i) & 1
+            #Update the result bit by bit each 32 bit
+            #1. since all 0's,use logic or with Bit variable that 1|1 =1, 1|0=0
+            #2. First bit should be kept at last as we need to reverse it, so shift left by 31-i i.e. 31,30,29.....2,1,0
+            result = result | (bit<<(31-i))
+        return result
+            
