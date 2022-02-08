@@ -1,0 +1,36 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+#Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+
+"""
+            1
+        /       \
+        2        2
+     /    \     /  \
+    3       4  4     3
+root.left === root.right
+root.left.left== root.right.left
+root.left.right==root.right.left
+"""
+class Solution:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        if root == None:
+            return True
+        else:
+            return self.same(root.left,root.right)
+        
+    def same(self,left,right):
+        if left is None and right is None:
+            return True
+        if left is None or right is None:
+            return False
+        if left.val == right.val:
+            pair1= self.same(left.left,right.right)
+            pair2= self.same(left.right, right.left)
+            #print(pair1, pair2)
+            return pair1 and pair2
+        return False
