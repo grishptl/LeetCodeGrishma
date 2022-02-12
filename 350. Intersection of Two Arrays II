@@ -1,0 +1,21 @@
+#TimeComplexity: O(m+n)
+#SpaceComplexity: O(min(m,n)) since , result will be intersection
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        hashmap={}
+        result=[]
+        temp = nums1
+        if len(nums1)<len(nums2):
+            nums1=nums2
+            nums2=temp
+        
+        for i in nums1:
+            if i in hashmap:
+                hashmap[i]=hashmap[i]+1
+            else:
+                hashmap[i]=1
+        for num in nums2:
+            if num in hashmap and hashmap[num]>0:
+                result.append(num)
+                hashmap[num]=hashmap[num]-1
+        return result
