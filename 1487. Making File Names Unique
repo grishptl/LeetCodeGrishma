@@ -1,0 +1,20 @@
+from collections import OrderedDict
+class Solution:
+    def getFolderNames(self, names: List[str]) -> List[str]:
+        result = OrderedDict()
+        hashmap={}
+        for i in names:
+            if i not in hashmap:
+                hashmap[i]=1
+            if i not in result:
+                result[i]=True
+                continue
+            checkstr= i+"("+str(hashmap[i])+")"
+            while checkstr in result:
+                hashmap[i]=hashmap[i]+1
+                checkstr= i+"("+str(hashmap[i])+")"
+            result[checkstr]=True
+        return result
+        
+        
+        #Time and Space O(n)
