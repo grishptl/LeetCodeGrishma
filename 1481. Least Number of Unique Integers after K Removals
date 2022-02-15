@@ -1,0 +1,20 @@
+from collections import Counter
+class Solution:
+    def findLeastNumOfUniqueInts(self, arr: List[int], k: int) -> int:
+        hashmap = Counter(arr) #O(n)
+        
+        result=0
+        countlist= list(sorted(hashmap.items(),key=lambda i: i[1])) #O(nlogn)
+        #print(countlist)
+        for ch,i in enumerate(countlist): #O(n)
+            print(ch,i)
+            if i[1]<=k:
+                result=result+1
+                k= k -i[1]
+            else:
+                break
+        return len(countlist)-result
+#Time Complexity: O(n)+ O(nlogn) + O(n) = O(2n)+(nLogn)= O(nlogn)
+#Space Complexity: O(n) to store the countlist
+                
+                        
