@@ -1,0 +1,33 @@
+# """
+# This is ArrayReader's API interface.
+# You should not implement it, or speculate about its implementation
+# """
+#class ArrayReader:
+#    def get(self, index: int) -> int:
+
+class Solution:
+    def search(self, reader: 'ArrayReader', target: int) -> int:
+        val = self.findsize(reader,target)
+        return val
+        
+    def findsize(self,reader,target):
+        left=0
+        right=1
+        while reader.get(right)<target:
+            temp = right+1
+            right = right+ (right-left)*2
+            left=temp
+        return self.binarysearch(reader,left,right,target)
+    def binarysearch(self,reader,left,right,target):
+        #left =0
+        #right = len(nums)-1
+        #ans=-1
+        while left<=right:
+            mid = (left+right)//2
+            if reader.get(mid)<target:
+                left = mid+1
+            elif reader.get(mid)>target:
+                right= mid-1
+            else:
+                return mid
+        return -1
