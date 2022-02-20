@@ -1,0 +1,19 @@
+#35. Search Insert Position
+#Time logn, space: 1
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        #since sorted array is given, binarysearch approach
+        left = 0
+        right = len(nums)-1
+        while(left<=right):
+            mid = (left+right)//2
+            #print(left,right,mid,nums[mid],target)
+            if nums[mid] == target:
+                return mid
+            elif nums[mid]> target:
+                right =mid-1
+                #continue
+            elif nums[mid]<target:
+                left = mid+1
+                #continue
+        return left
