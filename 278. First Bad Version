@@ -1,0 +1,28 @@
+# The isBadVersion API is already defined for you.
+# @param version, an integer
+# @return an integer
+# def isBadVersion(version):
+#O(logn) time, O(1) space
+class Solution:
+    def firstBadVersion(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        #since sorted array is given, binarysearch approach
+        left = 0
+        right = n-1
+        #target=len(n)-1
+        while(left<=right):
+            mid = (left+right)//2
+            #print(left,right,mid,isBadVersion(mid))
+
+            if isBadVersion(mid)== True:
+                #target= mid
+                right =mid-1
+                #continue
+            elif isBadVersion(mid)== False:
+                left = mid+1
+                #continue
+        return left
+        
