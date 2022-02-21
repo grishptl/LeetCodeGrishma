@@ -1,0 +1,12 @@
+class Solution:
+    def arraySign(self, nums: List[int]) -> int:
+        #hashmap = {-1:0, 1:0}
+        result =1
+        if 0 in nums:
+            return 0
+        else:
+            for i in nums:
+                if i<0:
+                    result = result*(-1)
+            return result
+                
