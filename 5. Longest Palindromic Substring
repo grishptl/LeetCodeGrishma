@@ -1,0 +1,22 @@
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        result=""
+        def palindrome(left,right):
+            #lenpali = ""
+            while left>=0 and right<len(s) and s[left]==s[right]:
+                    left = left-1
+                    right = right+1
+            return s[left+1:right]
+        for i in range(len(s)):
+            #left=right =0
+            paliodd= palindrome(i,i)
+            if len(paliodd)>len(result):
+                result = paliodd
+            palieven = palindrome(i,i+1)
+            if len(palieven)>len(result):
+                result = palieven
+        return result
+        
+            
+        
+            
